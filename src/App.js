@@ -1,48 +1,77 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Navlink } from 'react-router-dom';
+import axios from 'axios'
+import { createBrowserHistory } from "history";
 import logo from './logo.svg';
 import './App.css';
 import Home from './Home'
+import Start from './components/Start.js'
 import TvShows from './TvShows'
 import Movies from './Movies'
 import MyStuff from './MyStuff'
 import Navbar from './Navbar'
+import MovieShow from './MovieShow'
+import Login from './components/registration/Login.js'
+import Signup from './components/registration/Signup.js'
+import {PrivateRoute} from './PrivateRoute'
 
 const URL = "http://localhost:3000/movies"
+const customHistory = createBrowserHistory();
 
 export default class App extends React.Component {
 
   state = {
-    movies: []
+    movies: [],
+    loggedIn: false
   }
 
-  componentDidMount() {
-    fetch(URL).then(res => res.json()).then(data => this.setState({ movies: data }))
-  }
+
+  
 
   render() {
-    let allMoviesAndTvShows = this.state.movies
-    let tvShows = this.state.movies.filter(movie => movie.isMovie === false)
-    let movies = this.state.movies.filter(movie => movie.isMovie)
+    
     return (
-      <Router>
+      <Router history={customHistory}>
         <div className="App">
           <Navbar />
-          <Route exact path="/" render={() => (
-            <Home  movies={allMoviesAndTvShows} />
+          <Route exact path='/start' render={props => (
+            <Start {...props}  />
           )} />
-          <Route exact path="/tvshows" render={() => (
-            <TvShows  movies={tvShows} />
+          <Route exact path='/login' render={props => (
+            <Login {...props}  />
           )} />
-          <Route exact path="/movies" render={() => (
-            <Movies  movies={movies} />
+          <Route exact path='/signup' render={props => (
+            <Signup {...props}  />
           )} />
-          <Route exact path="/mystuff" render={() => (
-            <MyStuff  movies={movies} />
+          <PrivateRoute exact path="/home" component={Home}/>
+          {/* <Route exact path="/home" render={(props) => (
+            <Home {...props}  />
+          )} /> */}
+          <Route exact path="/home/:showId" render={(props) => (
+            <MovieShow {...props}  />
+          )} />
+          <PrivateRoute exact path="/tvshows" component={TvShows}/>
+          {/* <Route exact path="/tvshows" render={(props) => (
+            <TvShows {...props}  />
+          )} /> */}
+          <Route path="/tvshows/:showId" render={(props) => (
+            <MovieShow {...props}  />
+          )} />
+          <PrivateRoute exact path="/movies" component={Movies}/>
+          {/* <PrivateRoute exact path="/movies" render={(props) => (
+            <Movies {...props}  />
+          )} /> */}
+          <Route path="/movies/:showId" render={(props) => (
+            <MovieShow {...props}  />
+          )} />
+          <Route exact path="/mystuff" render={(props) => (
+            <MyStuff {...props}  />
           )} />
         </div>
       </Router>
-    );
+      
+      );
+
   }
 }
 
@@ -76,3 +105,21 @@ export default class App extends React.Component {
 
 //<Account />
 
+// fetch('http://localhost:3000/api/v1/users', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //     Accept: 'application/json',
+         
+    //   },
+    //   body: JSON.stringify({
+    //     user: {
+    //       username: "MeytonWoods",
+    //       password_digest: "Ilovehavemercy2020!",
+    //       name: "Meyton Woods",
+    //       email: "meytonwoods@gmail.com"
+    //     }
+    //   })
+    // })
+    //   .then(r => r.json())
+    //   .then(console.log)

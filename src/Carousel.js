@@ -1,6 +1,7 @@
 import React from 'react';
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
+import {Link} from 'react-router-dom';
 import Card from './Card'
 
 
@@ -21,7 +22,7 @@ export default class Carousel extends React.Component {
                 infinite={true}
             >
                 <Slider className="slider">
-                    {this.props.movies.map((movie, index) => <Slide key={index} index={index}><Card key={movie.title} movie={movie}/></Slide>)}
+                    {this.props.movies.map((movie, index) => <Slide key={index} index={index}><Link key={index} to={`${this.props.url}/${movie.id}`}><Card key={movie.title} movie={movie}/></Link></Slide>)}
                 </Slider>
                 <ButtonBack>Back</ButtonBack>
                 <ButtonNext>Next</ButtonNext>

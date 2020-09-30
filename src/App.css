@@ -56,7 +56,6 @@
 
 .outer-div-card:hover img {
   opacity: 0;
-  
 }
 
 .card {
@@ -88,6 +87,10 @@
 
 .movie-details p {
   font-size: 14px;
+}
+
+.trailer-container {
+  width: 90%;
 }
 
 

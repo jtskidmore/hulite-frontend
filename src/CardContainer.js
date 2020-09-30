@@ -1,8 +1,9 @@
 import React from 'react';
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
-import Card from './Card'
+import Card from './Card';
 import Carousel from './Carousel';
+import {Link} from 'react-router-dom';
 
 
 export default class CardContainer extends React.Component {
@@ -26,18 +27,18 @@ export default class CardContainer extends React.Component {
 
         return (
             <div className="carousel-container">
-                <Carousel movies={action}/>
-                <Carousel movies={romance}/>
-                <Carousel movies={horror}/>
-                <Carousel movies={documentary}/>
-                <Carousel movies={animated}/>
-                <Carousel movies={comedy}/>
-                <Carousel movies={drama}/>
-                <Carousel movies={fantasy}/>
-                <Carousel movies={scifi}/>
-                <Carousel movies={family}/>
-                <Carousel movies={mystery}/>
-                <Carousel movies={anime}/>
+                <Carousel url={this.props.url} movies={action}/>
+                <Carousel url={this.props.url} movies={romance}/>
+                <Carousel url={this.props.url} movies={horror}/>
+                <Carousel url={this.props.url} movies={documentary}/>
+                <Carousel url={this.props.url} movies={animated}/>
+                <Carousel url={this.props.url} movies={comedy}/>
+                <Carousel url={this.props.url} movies={drama}/>
+                <Carousel url={this.props.url} movies={fantasy}/>
+                <Carousel url={this.props.url} movies={scifi}/>
+                <Carousel url={this.props.url} movies={family}/>
+                <Carousel url={this.props.url} movies={mystery}/>
+                <Carousel url={this.props.url} movies={anime}/>
             </div>
         );
     }
