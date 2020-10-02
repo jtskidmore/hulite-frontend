@@ -1,0 +1,102 @@
+.link {
+    font-style: 'initial';
+    font-size: 16px;
+    font-family: "Arial Black", Gadget, sans-serif;
+    padding: 20px;
+    margin: 15px 0px 15px 15px;
+    color: white;
+    height:100%;
+    border-radius: 8px;
+    display: inline-block;
+    transition: all .3s ease-in-out;
+  }
+  .link:hover{
+    transition: all .3s ease-in-out;
+    background:rgb(116, 241, 137,0.5);
+  }
+  /* .link:first-child{
+    border-right: none;
+  } */
+
+  .home{
+    float:left;
+    height:100%;
+    border-radius: 12px;
+    margin: 15px 20px 0px 15px;
+  }
+  .home img{
+    width:100px;
+    height:30px;
+    padding: 20px;
+  }
+
+  .fa-user-circle{
+    float:right;
+    padding: 15px;
+    margin: 15px 30px 15px 15px;
+    height:100%;
+    border-radius: 8px;
+    transition: all .3s ease-in-out;
+    list-style-type: none;
+    text-decoration: none;
+    color: rgb(116, 241, 137);
+  }
+
+  .fa-user-circle:hover{
+    transition: all .3s ease-in-out;
+    background:rgb(116, 241, 137,0.5);
+    color: white;
+  }
+
+.body{
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    position:fixed;
+    background: #1d1d1d;
+    list-style-type: none;
+    text-decoration: none;
+    /* overflow: hidden; */
+    margin: 0px;
+    padding: 0px;
+    border: 5px solid #000000 0.4;
+  }
+
+  .dropdown {
+    position: absolute;
+    display: inline-block;
+    height: 50px;
+    right: 1%;
+    transition: all .3s ease-in-out;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 140px;
+    height: px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 50;
+    top: 98%;
+    right: 1%;
+    transition: all .3s ease-in-out;
+  }
+  .dropdown-content h4 {
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: black;
+    padding: 3px 3px;
+    text-decoration: none;
+    display: block;
+    z-index: 50;
+  }
+
+  .dropdown-content h4:hover {color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
